@@ -192,7 +192,7 @@ function start_menu(){
     green " 1. 安装Docker"
     green " 2. 更新Docker"
     green " 3. 安装frps"
-    green " 3. 安装frpc----请先在/root下配置/root/frpc.ini"
+    green " 4. 安装frpc----请先在/root下配置/root/frpc.ini"
     green " 5. docker停止/重启/删除容器说明"
     yellow " 0. 退出"
     echo
