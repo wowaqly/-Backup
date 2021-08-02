@@ -153,7 +153,7 @@ green "要修改配置可以直接重装一遍，或者修改/docker/frps/frps.i
 #安装frpc
 function install_frpc(){
     green "======================="
-    blue "现在/root下编辑好/root/frpc.ini再运行！！"
+    blue "请先新建/root/frpc并在其中配置frpc.ini如果需要放入改好名的证书！"
     blue "如果没有编辑的现在按ctrl+c退出安装"
     blue "sleep 20s"
     green "======================="
@@ -164,7 +164,7 @@ function install_frpc(){
     rm -rf /docker/frpc
     mkdir /docker
     mkdir /docker/frpc
-    cp /root/frpc.ini /docker/frpc
+    cp /root/frpc/*.* /docker/frpc
     docker run --restart=always --network host -d -v /docker/frpc:/etc/frp --name frpc snowdreamtech/frpc
 }
 # 说明
@@ -192,7 +192,7 @@ function start_menu(){
     green " 1. 安装Docker"
     green " 2. 更新Docker"
     green " 3. 安装frps"
-    green " 4. 安装frpc----请先在/root下配置/root/frpc.ini"
+    green " 4. 安装frpc----请先新建/root/frpc并在其中配置frpc.ini如果需要放入改好名的证书"
     green " 5. docker停止/重启/删除容器说明"
     yellow " 0. 退出"
     echo
