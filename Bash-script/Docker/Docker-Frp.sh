@@ -165,7 +165,7 @@ function install_frpc(){
     mkdir /docker
     mkdir /docker/frpc
     cp /root/frpc.ini /docker/frpc
-    docker run --restart=always --network host -d -v /docker/frpc:/etc/frp/ --name frpc snowdreamtech/frpc
+    docker run --restart=always --network host -d -v /docker/frpc:/etc/frp --name frpc snowdreamtech/frpc
 }
 # 说明
 function ps_docker(){
