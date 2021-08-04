@@ -108,13 +108,15 @@ docker run -d \
   -v /docker/heimdall:/config \
   --restart unless-stopped \
   ghcr.io/linuxserver/heimdall
-docker exec -it heimdall bash
 sleep 3s
+docker exec -i heimdall bash <<'EOF'
 rm -f /var/www/localhost/heimdall/app/Search.php
 rm -f /var/www/localhost/heimdall/resources/lang/en/app.php
 cp /config/hanhua/Search.php /var/www/localhost/heimdall/app
 cp /config/hanhua/app.php /var/www/localhost/heimdall/resources/lang/en
 exit
+EOF
+sleep 2s
 docker restart heimdall
 green "heimdall安装已完成"
 green "如果是重新安装，之前的配置文件已经cp到/root/heimdall中,可以替换/docker/heimdall/config恢复之前的设置"
