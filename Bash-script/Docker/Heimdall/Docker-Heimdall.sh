@@ -96,7 +96,7 @@ wget https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/Docker/H
     blue "请输入用于连接的端口号 范围1-65533"
     blue "请注意不要重复使用端口"
     green "======================="
-    read port-web
+    read portweb
 ######################################
 sleep 5s
 docker run -d \
@@ -104,10 +104,10 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Asia/Shanghai \
-  -p $port-web:80 \
+  -p $portweb:80 \
   -v /docker/heimdall/config:/config \
   -v /docker/heimdall/Search.php:/var/www/localhost/heimdall/app/Search.php \
-  -v /docker/heimdall/app.php:/var/www/localhost/heimdall/resources/lang/en/app.php
+  -v /docker/heimdall/app.php:/var/www/localhost/heimdall/resources/lang/en/app.php \
   --restart unless-stopped \
   ghcr.io/linuxserver/heimdall
 green "heimdall安装已完成"
