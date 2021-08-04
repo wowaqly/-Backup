@@ -87,8 +87,8 @@ cp -rf /docker/heimdall /root
 rm -rf /docker/heimdall
 mkdir /docker
 mkdir /docker/heimdall
-mkdir /docker/heimdall/config
-cd /docker/heimdall
+mkdir /docker/heimdall/hanhua
+cd /docker/heimdall/hanhua
 wget https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/Docker/Heimdall/Search.php
 wget https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/Docker/Heimdall/app.php
 ######################################
@@ -105,11 +105,17 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=Asia/Shanghai \
   -p $portweb:80 \
-  -v /docker/heimdall/config:/config \
-  -v /docker/heimdall/Search.php:/var/www/localhost/heimdall/app/Search.php \
-  -v /docker/heimdall/app.php:/var/www/localhost/heimdall/resources/lang/en/app.php \
+  -v /docker/heimdall:/config \
   --restart unless-stopped \
   ghcr.io/linuxserver/heimdall
+docker exec -it heimdall bash
+sleep 3s
+rm -f /var/www/localhost/heimdall/app/Search.php
+rm -f /var/www/localhost/heimdall/resources/lang/en/app.php
+cp /config/hanhua/Search.php /var/www/localhost/heimdall/app
+cp /config/hanhua/app.php /var/www/localhost/heimdall/resources/lang/en
+exit
+docker restart heimdall
 green "heimdall安装已完成"
 green "如果是重新安装，之前的配置文件已经cp到/root/heimdall中,可以替换/docker/heimdall/config恢复之前的设置"
 }
