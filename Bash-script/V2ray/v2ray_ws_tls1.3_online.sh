@@ -130,6 +130,7 @@ EOF
 	cd /root/acme.sh
 	chmod +x acme.sh
 	./acme.sh --install
+    ~/.acme.sh/acme.sh --set-default-ca  --server  letsencrypt
     ~/.acme.sh/acme.sh  --issue  -d $your_domain  --standalone
     ~/.acme.sh/acme.sh  --installcert  -d  $your_domain   \
         --key-file   /etc/nginx/ssl/$your_domain.key \
@@ -462,6 +463,7 @@ function update_ssl(){
     blue "请输入绑定到本VPS的域名"
     green "======================="
    read your_domain_update_ssl
+   ~/.acme.sh/acme.sh --set-default-ca  --server  letsencrypt
    ~/.acme.sh/acme.sh --upgrade
    ~/.acme.sh/acme.sh  --issue  -d $your_domain_update_ssl  --standalone
    ~/.acme.sh/acme.sh  --installcert  -d  $your_domain_update_ssl   \
