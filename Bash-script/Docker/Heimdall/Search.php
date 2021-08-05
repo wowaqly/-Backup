@@ -49,8 +49,8 @@ abstract class Search
                 'type' => 'standard',
             ],
             'ddg' => [
-                'url' => 'https://duckduckgo.com/',
-                'var' => 'q',
+                'url' => 'https://www.baidu.com/s',
+                'var' => 'wd',
                 'method' => 'get',
                 'type' => 'standard',
             ],
@@ -61,8 +61,8 @@ abstract class Search
                 'type' => 'standard',
             ],
             'qwant' => [
-                'url' => 'https://www.baidu.com/s',
-                'var' => 'wd',
+                'url' => 'https://duckduckgo.com/',
+                'var' => 'q',
                 'method' => 'get',
                 'type' => 'standard',
             ],
