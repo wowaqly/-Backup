@@ -310,7 +310,7 @@ function install(){
 #安装v2ray
 function install_v2ray(){
     cd /root
-	curl -s https://api.github.com/repos/v2fly/v2ray-core/releases/latest | grep "browser_download_url.*v2ray-linux-64.zip" | cut -d '"' -f 4 | wget -i -
+	curl -s https://api.github.com/repos/v2fly/v2ray-core/releases/latest | grep "browser_download_url.*v2ray-linux-64.zip" | head -n 1 | cut -d '"' -f 4 | wget -i -
 	rm -f /root/v2ray-linux-64.zip.dgst
 	wget -P /v2ray https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/V2ray/v2ray-config.json >/dev/null 2>&1
     mkdir /v2ray
