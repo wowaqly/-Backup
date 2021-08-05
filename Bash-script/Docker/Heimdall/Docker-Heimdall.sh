@@ -104,7 +104,7 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Asia/Shanghai \
-  -p $portweb:80 \
+  -p $portweb:443 \
   -v /docker/heimdall:/config \
   --restart unless-stopped \
   ghcr.io/linuxserver/heimdall
@@ -117,9 +117,10 @@ cp /config/hanhua/app.php /var/www/localhost/heimdall/resources/lang/en
 exit
 EOF
 sleep 2s
+echo "upload_max_filesize = 30M" >> /docker/heimdall/php/php-local.ini
 docker restart heimdall
 green "heimdall安装已完成"
-green "如果是重新安装，之前的配置文件已经cp到/root/heimdall中,可以替换/docker/heimdall/config恢复之前的设置"
+green "如果是重新安装，之前的配置文件已经cp到/root/heimdall中,可以替换/docker/heimdall恢复之前的设置"
 }
 # 说明
 function ps_docker(){
