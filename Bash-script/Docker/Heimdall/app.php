@@ -36,10 +36,10 @@ return [
     'settings.view' => '查看',
 
     'options.none' => '- 未设定 -',
-    'options.google' => 'Google',
-    'options.ddg' => 'DuckDuckGo',
+    'options.google' => '谷歌',
+    'options.ddg' => '百度',
     'options.bing' => 'Bing',
-    'options.qwant' => 'Baidu',
+    'options.qwant' => 'DuckDuckGo',
     'options.startpage' => 'StartPage',
     'options.yes' => 'Yes',
     'options.no' => 'No',
