@@ -48,7 +48,7 @@ if [ "$release" == "ubuntu" ]; then
     fi
     apt-get update >/dev/null 2>&1
     green "开始安装nginx编译依赖"
-    apt-get install -y git curl build-essential libpcre3 libpcre3-dev zlib1g-dev liblua5.1-dev libluajit-5.1-dev libgeoip-dev google-perftools libgoogle-perftools-dev >/dev/null 2>&1
+    apt-get install -y jq git curl build-essential libpcre3 libpcre3-dev zlib1g-dev liblua5.1-dev libluajit-5.1-dev libgeoip-dev google-perftools libgoogle-perftools-dev >/dev/null 2>&1
 elif [ "$release" == "debian" ]; then
     apt-get update >/dev/null 2>&1
     green "开始安装nginx编译依赖"
@@ -310,7 +310,8 @@ function install(){
 #安装v2ray
 function install_v2ray(){
     cd /root
-	curl -s https://api.github.com/repos/v2fly/v2ray-core/releases/latest | grep "browser_download_url.*v2ray-linux-64.zip" | head -n 1 | cut -d '"' -f 4 | wget -i -
+        v2raytag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/v2fly/v2ray-core/releases/latest" | jq -r '.tag_name')
+	wget https://github.com/v2fly/v2ray-core/releases/download/${v2raytag}/v2ray-linux-64.zip
 	rm -f /root/v2ray-linux-64.zip.dgst
 	wget -P /v2ray https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/V2ray/v2ray-config.json >/dev/null 2>&1
     mkdir /v2ray
