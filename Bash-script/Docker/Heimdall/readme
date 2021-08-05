@@ -1,1 +1,1 @@
-这是一个web主页，此脚本默认只开放http端口，请自行nginx转发https,无法上传超过2M的背景图
+这是一个web主页，此脚本默认只开放https端口，自行申请证书并且放到/docker/heimdall/keys中替换原来的文件，然后重启容器
