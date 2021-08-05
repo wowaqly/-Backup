@@ -375,7 +375,8 @@ green
 function update_v2ray(){
 	cd /root
 	rm -f v2ray-linux-64.zip
-	curl -s https://api.github.com/repos/v2fly/v2ray-core/releases/latest | grep "browser_download_url.*v2ray-linux-64.zip" | cut -d '"' -f 4 | wget -i -
+	v2raytag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/v2fly/v2ray-core/releases/latest" | jq -r '.tag_name')
+	wget https://github.com/v2fly/v2ray-core/releases/download/${v2raytag}/v2ray-linux-64.zip
 	rm -f /root/v2ray-linux-64.zip.dgst
     systemctl stop v2ray.service
 	mkdir /root/lingshi389
