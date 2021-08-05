@@ -120,6 +120,7 @@ sleep 2s
 echo "upload_max_filesize = 30M" >> /docker/heimdall/php/php-local.ini
 docker restart heimdall
 green "heimdall安装已完成"
+green "此脚本默认只开放https端口，自行申请证书并且放到/docker/heimdall/keys中替换原来的文件"
 green "如果是重新安装，之前的配置文件已经cp到/root/heimdall中,可以替换/docker/heimdall恢复之前的设置"
 }
 # 说明
