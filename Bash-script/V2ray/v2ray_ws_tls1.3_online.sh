@@ -52,7 +52,7 @@ if [ "$release" == "ubuntu" ]; then
 elif [ "$release" == "debian" ]; then
     apt-get update >/dev/null 2>&1
     green "开始安装nginx编译依赖"
-    apt-get install -y  git curl build-essential libpcre3 libpcre3-dev zlib1g-dev liblua5.1-dev libluajit-5.1-dev libgeoip-dev google-perftools libgoogle-perftools-dev >/dev/null 2>&1
+    apt-get install -y jq git curl build-essential libpcre3 libpcre3-dev zlib1g-dev liblua5.1-dev libluajit-5.1-dev libgeoip-dev google-perftools libgoogle-perftools-dev >/dev/null 2>&1
 fi
 }
 #安装环境监测
