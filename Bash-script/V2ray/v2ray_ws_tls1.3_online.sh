@@ -160,7 +160,7 @@ install_nginx_camouflage
 function install_nginx_proxy(){
     green "======================="
     blue "请输入用来反代伪装的网站，不要有敏感内容的网站"
-    blue "例如—— https://www.videvo.net"
+    blue "例如—— https://www.xxx.com,一定要输入前面的https或者http"
     blue "有的网站是无法反代的，如果打不开网页试着换个网站吧"
     blue "如果是代理filebrowser，需要去/etc/nginx/conf.d/default.conf删除标记的注释"
     blue "如果是使用了cloduflare works的反代，需要去/etc/nginx/conf.d/default.conf把error_page 400 = 后面的网址改成反代后的网址"
