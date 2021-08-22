@@ -87,15 +87,15 @@ fi
 #安装Nginx
 function install_nginx(){
     cd /root
-    wget https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/V2ray/openssl-1.1.1a.tar.gz >/dev/null 2>&1
-    tar xzvf openssl-1.1.1a.tar.gz >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/V2ray/openssl-1.1.1k.tar.gz >/dev/null 2>&1
+    tar xzvf openssl-1.1.1k.tar.gz >/dev/null 2>&1
     mkdir /etc/nginx
     mkdir /etc/nginx/ssl
     mkdir /etc/nginx/conf.d
     wget https://raw.githubusercontent.com/wowaqly/Backup/patch/Bash-script/V2ray/nginx-1.15.8.tar.gz >/dev/null 2>&1
     tar xf nginx-1.15.8.tar.gz  >/dev/null 2>&1
     cd nginx-1.15.8
-    ./configure --prefix=/etc/nginx --with-openssl=../openssl-1.1.1a --with-openssl-opt='enable-tls1_3' --with-http_v2_module --with-http_ssl_module --with-http_gzip_static_module --with-http_stub_status_module --with-http_sub_module --with-stream --with-stream_ssl_module  >/dev/null 2>&1
+    ./configure --prefix=/etc/nginx --with-openssl=../openssl-1.1.1k --with-openssl-opt='enable-tls1_3' --with-http_v2_module --with-http_ssl_module --with-http_gzip_static_module --with-http_stub_status_module --with-http_sub_module --with-stream --with-stream_ssl_module
     green "开始编译安装nginx，编译等待时间可能较长，请耐心等待，通常需要几到十几分钟"
     sleep 3s
     make >/dev/null 2>&1
@@ -451,11 +451,11 @@ function remove_package(){
     rm -rf /root/acme.sh
     rm -rf /root/acme.sh.zip
     rm -rf /root/nginx-1.15.8.tar.gz
-    rm -rf /root/openssl-1.1.1a.tar.gz
+    rm -rf /root/openssl-1.1.1k.tar.gz
 	rm -rf /root/v2ray-config.json
 	rm -rf /root/v2ray-linux-64.zip  
 	rm -rf nginx-1.15.8
-	rm -rf openssl-1.1.1a
+	rm -rf openssl-1.1.1k
 	rm -f /root/v2ray-linux-64.zip.dgst
     green "安装包已删除"  
 }
