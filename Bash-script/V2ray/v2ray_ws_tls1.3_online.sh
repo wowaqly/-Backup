@@ -246,7 +246,7 @@ server {
     ssl_certificate_key /etc/nginx/ssl/$your_domain.key;
     #TLS 版本控制
     ssl_protocols TLSv1.3;
-    #如果要使用TLSv1.2,请在上一行的TLSv1.3前面加入TLSv1.2 ，并且取消掉下一行的注释
+    #如果要使用TLSv1.2,请在上一行的TLSv1.3前面加入TLSv1.2 ，并且取消掉下两行的注释
     #ssl_ciphers TLS13-AES-256-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-128-GCM-SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:!MD5;
     #ssl_prefer_server_ciphers   on;
     #  1.3 0-RTT
