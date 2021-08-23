@@ -13,5 +13,4 @@ DOMAIN,activity.baidu.com
 DOMAIN,ada.baidu.com
 DOMAIN,fclick.baidu.com
 ###淘宝###
-DOMAIN,daren-auth.alicdn.com
-DOMAIN,tbm-auth.alicdn.com
+DOMAIN-KEYWORD,auth.alicdn.com
