@@ -2,6 +2,7 @@
 ##自添规则
 DOMAIN-SUFFIX,xdrig.com
 DOMAIN-SUFFIX,access-sngapm.qcloud.com
+###百度###
 DOMAIN,boxer.baidu.com
 DOMAIN,ug.baidu.com
 DOMAIN,miao.baidu.com
@@ -11,3 +12,6 @@ DOMAIN,ext.baidu.com
 DOMAIN,activity.baidu.com
 DOMAIN,ada.baidu.com
 DOMAIN,fclick.baidu.com
+###淘宝###
+DOMAIN,daren-auth.alicdn.com
+DOMAIN,tbm-auth.alicdn.com
