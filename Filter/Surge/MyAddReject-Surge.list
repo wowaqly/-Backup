@@ -13,8 +13,6 @@ DOMAIN,activity.baidu.com
 DOMAIN,ada.baidu.com
 DOMAIN,fclick.baidu.com
 ###淘宝###
-DOMAIN-KEYWORD,auth.alicdn.com
+((USER-AGENT,%E6%B7%98%E5%AE%9D/*), (DOMAIN-SUFFIX,alicdn.com))
 DOMAIN,cloud.video.taobao.com
-DOMAIN,heic.alicdn.com
-DOMAIN,a1.alicdn.com
 DOMAIN,h-adashx.ut.taobao.com
