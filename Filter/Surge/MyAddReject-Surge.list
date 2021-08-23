@@ -13,4 +13,4 @@ DOMAIN,activity.baidu.com
 DOMAIN,ada.baidu.com
 DOMAIN,fclick.baidu.com
 ###淘宝###
-AND,((DOMAIN-SUFFIX,alicdn.com), (DOMAIN-KEYWORD,h264), (DOMAIN-KEYWORD,h265) ,(DOMAIN-KEYWORD,mp4))
+AND,((DOMAIN-SUFFIX,alicdn.com),(DOMAIN-KEYWORD,h264),(DOMAIN-KEYWORD,h265),(DOMAIN-KEYWORD,mp4))
