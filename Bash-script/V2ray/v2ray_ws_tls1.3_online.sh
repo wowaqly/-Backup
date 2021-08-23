@@ -176,7 +176,6 @@ server {
     listen 443 ssl http2;
     server_name $your_domain;
     error_page 400 = https://$your_domain;
-    add_header Strict-Transport-Security "max-age=31536000";
     location / {
         proxy_pass $pretend_url;
         #如果是代理filebrowser，需要删除以下注释
@@ -204,7 +203,7 @@ server {
     ssl_early_data  on;
     ssl_stapling on;
     ssl_stapling_verify on;
-    #add_header Strict-Transport-Security "max-age=31536000";
+    add_header Strict-Transport-Security "max-age=31536000";
     #access_log /var/log/nginx/access.log combined;
     #v2ray
     location /$newpath {
@@ -240,7 +239,6 @@ server {
     listen 443 ssl http2;
     server_name $your_domain;
     error_page 400 = https://$your_domain;
-    add_header Strict-Transport-Security "max-age=31536000";
     root /etc/nginx/html;
     index index.php index.html;
     ssl_certificate /etc/nginx/ssl/fullchain.cer; 
@@ -253,7 +251,7 @@ server {
     ssl_early_data  on;
     ssl_stapling on;
     ssl_stapling_verify on;
-    #add_header Strict-Transport-Security "max-age=31536000";
+    add_header Strict-Transport-Security "max-age=31536000";
     #access_log /var/log/nginx/access.log combined;
     #v2ray
     location /$newpath {
