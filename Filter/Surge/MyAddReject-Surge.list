@@ -13,4 +13,4 @@ DOMAIN,activity.baidu.com
 DOMAIN,ada.baidu.com
 DOMAIN,fclick.baidu.com
 ###淘宝###
-AND,((DOMAIN-SUFFIX,alicdn.com), (USER-AGENT,淘宝?))
+AND,((DOMAIN-SUFFIX,alicdn.com), (USER-AGENT,淘宝/?))
