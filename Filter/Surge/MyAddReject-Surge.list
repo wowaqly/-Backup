@@ -15,4 +15,3 @@ DOMAIN,fclick.baidu.com
 ###淘宝###
 ((USER-AGENT,%E6%B7%98%E5%AE%9D/*), (DOMAIN-SUFFIX,alicdn.com))
 DOMAIN,cloud.video.taobao.com
-DOMAIN,h-adashx.ut.taobao.com
