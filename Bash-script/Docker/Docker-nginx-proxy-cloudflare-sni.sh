@@ -81,9 +81,10 @@ function update_docker(){
 function install_nginx_proxy(){
 ######################################
     green "======================="
-    green "此脚本只适用于反代套过cloud flare的cdn的https网站"
-    green "此脚本只适用于反代套过cloud flare的cdn的https网站"
-    green "此脚本只适用于反代套过cloud flare的cdn的https网站"
+    green "此脚本只适用于反代套过cloud flare的cdn的https网站,并且需要最低TLS版本为1.2"
+    green "此脚本只适用于反代套过cloud flare的cdn的https网站,并且需要最低TLS版本为1.2"
+    green "此脚本只适用于反代套过cloud flare的cdn的https网站,并且需要最低TLS版本为1.2"
+    green "在cloud flare的域名管理的SSL/TLS中把最低TLS版本改为1.2"
     blue "请先把证书和密钥放到/root/nginx中"
     blue "如果没有放请clrt c结束安装"
     blue "sleep 20s"    
@@ -155,9 +156,7 @@ server
     #error_page 404/404.html;
     ssl_certificate    /etc/nginx/ssl/$sslpem;
     ssl_certificate_key    /etc/nginx/ssl/$sslkey;
-    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
-    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
-    ssl_prefer_server_ciphers on;
+    ssl_protocols TLSv1.3;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
     add_header Strict-Transport-Security "max-age=31536000";
@@ -258,9 +257,7 @@ server
  server_name $sniname;
  ssl_certificate /etc/nginx/ssl/sni/$snisslpem;
  ssl_certificate_key /etc/nginx/ssl/sni/$snisslkey;
- ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
- ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
- ssl_prefer_server_ciphers on;
+ ssl_protocols TLSv1.3;
  ssl_session_cache shared:SSL:10m;
  ssl_session_timeout 10m;
 }
