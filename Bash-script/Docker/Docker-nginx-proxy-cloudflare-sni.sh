@@ -181,7 +181,7 @@ server
         add_header Cache-Control no-cache;
         expires 12h;
         # proxy_pass也可以找个速度快的cloudflare的ip填进去，记得要带https://
-        proxy_pass https://$myserver;
+        proxy_pass https://$proxyserver;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection "upgrade";
         }
@@ -217,8 +217,7 @@ function install_nginx_sni(){
     green " ==============================================="
     green " 必须先安装好反代才能配置，并且把需要sni的域名证书放到/root/nginx/sni中"
     green "  如果没有安装好,或放好证书现在clrt c退出"
-    green " 可以绑定到另外一个域名和证书上"
-    green " 主要用于surge sni配置 "  
+    green " 可以绑定到另外一个域名和证书上" 
     green " sleep 15s "  
     green " ==============================================="
     sleep 15s
