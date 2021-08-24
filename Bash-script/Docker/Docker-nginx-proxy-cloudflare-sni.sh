@@ -136,14 +136,6 @@ cp /root/nginx/*.* /docker/nginx/ssl
     green "======================="
     read sslkey
 ######################################
-######################################
-    green "======================="
-    blue "请输入cloudflare的ip"
-    blue "自行去找最合适的ip"    
-    blue "如果不知道就输入1.1.1.1或1.0.0.1这种"
-    green "======================="
-    read myhost
-######################################
 sleep 5s
 cat > /docker/nginx/conf.d/default.conf<<-EOF
 server
@@ -188,8 +180,8 @@ server
         # 禁用缓存 （这个应该会影响到cloudfalre的缓存，不建议设置）
         add_header Cache-Control no-cache;
         expires 12h;
-        # 这里随便找个cloudflare的ip即可
-        proxy_pass https://$myhost;
+        # proxy_pass也可以找个速度快的cloudflare的ip填进去，记得要带https://
+        proxy_pass https://$myserver;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection "upgrade";
         }
@@ -206,6 +198,7 @@ sleep 3s
 
 green "nginx-proxy安装已完成"
 green "如果要更换配置直接重新安装即可"
+green "如果速度特别慢，可以去修改/docker/nginx/conf.d/default.conf中最后的proxy_pass，找个速度快的cloudflare的ip填进去"
 }
 # 说明
 function ps_docker(){
