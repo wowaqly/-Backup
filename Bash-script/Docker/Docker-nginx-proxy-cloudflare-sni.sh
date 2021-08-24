@@ -258,6 +258,7 @@ server
  ssl_certificate /etc/nginx/ssl/sni/$snisslpem;
  ssl_certificate_key /etc/nginx/ssl/sni/$snisslkey;
  ssl_protocols TLSv1.3;
+ add_header Strict-Transport-Security "max-age=31536000";
  ssl_session_cache shared:SSL:10m;
  ssl_session_timeout 10m;
 }
