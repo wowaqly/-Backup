@@ -99,7 +99,6 @@ mkdir /docker
 mkdir /docker/nginx
 mkdir /docker/nginx/conf.d
 mkdir /docker/nginx/ssl
-mkdir /docker/nginx/ssl/sni
 cp /root/nginx/*.* /docker/nginx/ssl
 ######################################
     green "======================="
@@ -211,58 +210,7 @@ function ps_docker(){
     green " docker rmi 镜像id ---删除镜像---需要先删除容器 "   
     green " ==============================================="
 }
-#安装sni
-function install_nginx_sni(){
- clear
-    green " ==============================================="
-    green " 必须先安装好反代才能配置，并且把需要sni的域名证书放到/root/nginx/sni中"
-    green "  如果没有安装好,或放好证书现在clrt c退出"
-    green " 可以绑定到另外一个域名和证书上" 
-    green " sleep 15s "  
-    green " ==============================================="
-    sleep 15s
-    cp /root/nginx/sni/*.* /docker/nginx/ssl/sni
-    ######################################
-    green "======================="
-    blue "请输入SNI的域名"
-    blue "不需要https http这种前缀"
-    green "======================="
-    read sniname
-    ######################################
-    green "======================="
-    blue "请输入证书的名字"
-    blue "需要带有后缀 crt 或 pem"
-    green "======================="
-    read snisslpem
-    ######################################
-    ######################################
-    green "======================="
-    blue "请输入证书key的名字"
-    blue "需要带有后缀key"
-    green "======================="
-    read snisslkey
-    ######################################
-    cat > /docker/nginx/conf.d/sni.conf<<-EOF
-server
-{
- listen 443 ssl;
- server_name $sniname;
- ssl_certificate /etc/nginx/ssl/sni/$snisslpem;
- ssl_certificate_key /etc/nginx/ssl/sni/$snisslkey;
- ssl_protocols TLSv1.3;
- add_header Strict-Transport-Security "max-age=31536000";
- ssl_session_cache shared:SSL:10m;
- ssl_session_timeout 10m;
-}
-EOF
-sleep 3s
-docker restart nginx
-######################################
-    green "======================="
-    blue "SNI已配置完成"
-    green "======================="
-######################################
-}
+
 #主菜单
 function start_menu(){
     clear
@@ -273,14 +221,13 @@ function start_menu(){
     green "此脚本只适用于反代套过cloud flare的cdn的https网站"
     green "要重新设置请先删除已经运行的容器然后重新安装"
     green "请先把网站证书和密钥放到/root/nginx中"
-    green "把SNI证书放到/root/nginx/sni中"
+    green "sni需要设定成反代后的域名"
     green " ==============================================="
     echo
     green " 1. 安装Docker"
     green " 2. 更新Docker"
     green " 3. 安装nginx-proxy-cloudflare"
-    green " 4. 配置TLS SNI以绑定另一个域名证书（必须先安装好反代）"
-    green " 5. docker停止/重启/删除容器说明"
+    green " 4. docker停止/重启/删除容器说明"
     yellow " 0. 退出"
     echo
     read -p "Pls enter a number:" num
@@ -295,9 +242,6 @@ function start_menu(){
     install_nginx_proxy
     ;;
     4)
-    install_nginx_sni
-    ;;
-    5)
     ps_docker
     ;;
     0)
