@@ -192,7 +192,7 @@ cat > /v2ray/v2ray/config.json<<-EOF
   },
   "inbound": {
     "port": 12345,
-    "listen":"127.0.0.1",
+    "listen":"0.0.0.0",
     "protocol": "vmess",
     "settings": {
       "clients": [
