@@ -126,7 +126,7 @@ function start_clash(){
     killall -9 pogo
     cd /root/.config/clash
     rm -f Country.mmdb
-    wget https://raw.outlink.top/JMVoid/ipip2mmdb/release/Country.mmdb
+    wget https://raw.outlink.top/Hackl0us/GeoIP2-CN/release/Country.mmdb
     nginx
     cd /root/clash
     nohup ./pogo &
