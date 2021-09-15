@@ -20,7 +20,8 @@ function start_menu(){
     green " clash配置文件在/root/.config/clash  替换后修改congif.yaml"
     green " 用脚本更新clash配置文件，把文件放到c盘ubuntu/clash，并重命名为congif.yaml后执行"
     green " 更新clash去https://github.com/Dreamacro/clash/releases/tag/premium下载最新版本解压后传到自己的GitHub中"
-    green " 更新控制台去https://github.com/Dreamacro/clash/releases/tag/premium下载最新版本解压后传到自己的GitHub中 "
+    green " 更新控制台去https://github.com/Dreamacro/clash-dashboard/archive/refs/heads/gh-pages.zip下载最新版本解压重后重新打包为yacd.zip传到自己的GitHub中 "
+    green " 备用控制台https://github.com/haishanh/yacd/releases "
     green " ==============================================="
     echo
     green " 1. 启动/重启Clash"
